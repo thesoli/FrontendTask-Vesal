@@ -1,0 +1,80 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, Haettenschweiler,
+      "Arial Narrow Bold", sans-serif, Helvetica, sans-serif;
+  }
+  
+  .grid-background {
+    position: relative;
+  }
+  
+  .grid-background::before,
+  .grid-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+  
+  .grid-background::before {
+    background: linear-gradient(
+      to bottom,
+      transparent 98%,
+      rgba(255, 255, 255, 0.1) 10%
+    );
+    background-size: 100% 20px;
+  }
+  
+  .grid-background::after {
+    background: linear-gradient(
+      to right,
+      transparent 98%,
+      rgba(255, 255, 255, 0.1) 10%
+    );
+    background-size: 20px 100%;
+  }
+ 
+ .gradiant {
+    background-image: repeating-linear-gradient(
+      90deg,
+      #03132a,
+      #03132a 0.1px,
+      #03132a 1px,
+      #03132a 0.5px
+    );
+  }
+  
+  .formcard {
+    background-color: #0D1323;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+  }
+  
+  .form {
+    background-color: #161E35;
+  }
+  
+  .formtitle-underline {
+    display: inline-block;
+    position: relative;
+    color: transparent;
+    text-decoration: none;
+  }
+  
+  .formtitle-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 300px;
+    background: rgb(184,189,190);
+    background: linear-gradient(90deg, rgba(184,189,190,0.5) 0%, rgba(39,39,47,2) 51%, rgba(184,189,190,0.5) 100%);
+    transition: background 0.3s ease;
+  }
