@@ -9,6 +9,7 @@ interface InputFieldProps {
   required?: boolean;
   validate?: (value: string) => boolean | string;
   error?: any;
+  className?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -20,8 +21,9 @@ const InputField: React.FC<InputFieldProps> = ({
   required,
   validate,
   error,
+  className,
 }) => (
-  <div className="mb-7">
+  <div className="mb-10">
     <label
       htmlFor={id}
       className="block text-xs font-sm text-right text-gray-400 pb-2"
@@ -33,10 +35,10 @@ const InputField: React.FC<InputFieldProps> = ({
       type={type}
       placeholder={placeholder}
       {...register(id, { required, validate })}
-      className="text-right bg-gray-600 w-full p-2 pl-10 text-sm text-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 py-3"
+      className={`text-right bg-slate-800 w-full p-2 pl-10 text-sm text-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 py-3 ${className}`}
     />
     {error && (
-      <p className="text-red-600 text-xs text-right mt-2">{error.message}</p>
+      <p className="text-red-600 text-xs font-sm text-right">{error.message}</p>
     )}
   </div>
 );

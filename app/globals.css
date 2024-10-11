@@ -19,14 +19,11 @@ body {
     "Arial Narrow Bold", sans-serif, Helvetica, sans-serif;
 }
 
-.grid-background {
-  position: relative;
-}
-
 .grid-background::before,
 .grid-background::after {
   content: "";
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;
@@ -63,16 +60,16 @@ body {
 }
 
 .formcard {
-  background-color: #0D1323;
+  background-color: #0d1323;
   color: white;
   border-radius: 15px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+  z-index: 2;
 }
 
 .form {
-  background-color: #161E35;
+  background-color: #161e35;
 }
 
 .formtitle-underline {
@@ -89,8 +86,16 @@ body {
   right: 0;
   bottom: 0;
   height: 1px;
-  width: 300px;
-  background: rgb(184,189,190);
-  background: linear-gradient(90deg, rgba(184,189,190,0.5) 0%, rgba(39,39,47,2) 51%, rgba(184,189,190,0.5) 100%);
+  width: 250px;
+  background: rgba(175, 196, 196, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(184, 189, 190, 0.1) 0%,
+    rgba(175, 196, 196, 1) 50%,
+    rgba(184, 189, 190, 0.1) 100%
+  );
   transition: background 0.3s ease;
+}
+
+.input {
 }

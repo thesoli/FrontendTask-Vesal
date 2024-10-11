@@ -7,6 +7,7 @@ import { PERSIAN_TITLES } from "../components/meta/fa";
 import InputField from "../components/LoginForm/InputField";
 import SubmitButton from "../components/LoginForm/SubmitButton";
 import formImageSrc from "../../app/images/formDesign.png";
+import { ICONS } from "./meta/icon";
 
 const UserAccountLoginForm: NextPage = () => {
   const {
@@ -43,42 +44,44 @@ const UserAccountLoginForm: NextPage = () => {
 
   return (
     <div className="body bg-dark flex justify-center h-screen w-screen items-center bg-gray-100 gradiant">
-      <div className="flex w-4/6 h-4/6 justify-around formcard">
+      <div className="flex w-4/6 h-4/5 justify-around formcard">
         <div className="max-w-[600px] size-full rounded-lg shadow-md w-full">
           <Image
             className="w-full h-full object-fill"
             src={formImageSrc}
             alt="an image of soldier for designing form"
-            width={750}
+            width={0}
             height={0}
           />
         </div>
-        <div className="flex flex-col justify-center max-w-[600px] size-full bg-slate-950 w-5/6 p-6 rounded-lg shadow-md form">
+        <div className="flex flex-col justify-center max-w-[600px] size-full bg-slate-950 w-5/6 p-6 rounded-lg shadow-md form leading-normal">
           <h2 className="text-2xl font-bold text-center text-gray-200 mb-5">
             {PERSIAN_TITLES.userAccountLogin}
           </h2>
-          <p className="formtitle-underline mb-7 ml-10"></p>
+          <p className="formtitle-underline mb-10 ml-10"></p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <InputField
               id="phoneNumber"
               type="text"
-              placeholder="| 📱"
+              placeholder={ICONS.mobile}
               label={PERSIAN_TITLES.enterPhoneNumber}
               register={register}
               required
               validate={validatePhoneNumber}
               error={errors.phoneNumber}
+              className={"mb-1"}
             />
             <InputField
               id="password"
               type="password"
-              placeholder="| 🔒"
+              placeholder={ICONS.lock}
               label={PERSIAN_TITLES.enterPassword}
               register={register}
               required
               validate={isNotEmpty}
               error={errors.password}
+              className={"mb-7"}
             />
             <SubmitButton
               loading={loading}
