@@ -16,12 +16,14 @@ const UserAccountLoginForm: NextPage = () => {
   } = useForm();
   const [loading, setLoading] = useState(false);
 
-  const validatePhoneNumber = (value: string) => {
+  const validatePhoneNumber = (phoneNumber: string) => {
     const pattern = /^09\d{9}$/;
-    return (
-      pattern.test(value) || "Must be an 11 digit number starting with '09'"
-    );
+    return pattern.test(phoneNumber) || PERSIAN_TITLES.phoneNumberIsWrong;
   };
+
+  function isNotEmpty(password: string) {
+    return password.trim() !== "" || PERSIAN_TITLES.passwordFieldIsEmpty;
+  }
 
   const onSubmit = async (data: any) => {
     setLoading(true);
@@ -52,32 +54,36 @@ const UserAccountLoginForm: NextPage = () => {
           />
         </div>
         <div className="flex flex-col justify-center max-w-[600px] size-full bg-slate-950 w-5/6 p-6 rounded-lg shadow-md form">
-          <h2 className="text-4xl font-bold text-center text-gray-200 mb-5">
+          <h2 className="text-2xl font-bold text-center text-gray-200 mb-5">
             {PERSIAN_TITLES.userAccountLogin}
           </h2>
-          <p className="formtitle-underline mb-16 ml-28"></p>
+          <p className="formtitle-underline mb-7 ml-10"></p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <InputField
               id="phoneNumber"
               type="text"
-              placeholder="| iphone"
+              placeholder="| 📱"
               label={PERSIAN_TITLES.enterPhoneNumber}
               register={register}
               required
               validate={validatePhoneNumber}
-              // error={errors.phoneNumber}
+              error={errors.phoneNumber}
             />
             <InputField
               id="password"
               type="password"
-              placeholder="| lock"
+              placeholder="| 🔒"
               label={PERSIAN_TITLES.enterPassword}
               register={register}
               required
-              // error={errors.password}
+              validate={isNotEmpty}
+              error={errors.password}
             />
-            <SubmitButton loading={loading} label={PERSIAN_TITLES.enteringUserPanel} />
+            <SubmitButton
+              loading={loading}
+              label={PERSIAN_TITLES.enteringUserPanel}
+            />
           </form>
         </div>
       </div>

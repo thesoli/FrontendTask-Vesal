@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface SubmitButtonProps {
   loading: boolean;
@@ -9,7 +9,7 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ loading, label }) => (
   <button
     type="submit"
     disabled={loading}
-    className="bg-violet-500 hover:bg-violet-700 text-white text-md font-extrabold py-5 rounded-lg w-full"
+    className="bg-violet-500 hover:bg-violet-700 text-white text-md font-extrabold py-3 rounded-lg w-full"
   >
     {loading ? "Loading..." : label}
   </button>
